@@ -16,70 +16,96 @@ namespace calculating_machine
         string current_Value = "";
         string result_Value = "";
 
+        bool isEqualPressed = false;
         public Form1()
         {
             InitializeComponent();
         }
 
+        private void UpdatedDisplay()
+        {
+            textBox_presentvalue.Text = current_Value;
+        }
+        private void ButtonNumber_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            if (isEqualPressed)
+            {
+                current_Value = "";
+                isEqualPressed = false;
+            }
+
+            current_Value += button.Text;
+            UpdatedDisplay();
+        }
         private void button_number1_Click(object sender, EventArgs e)
         {
             current_Value += "1";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
         }
 
         private void button_number2_Click(object sender, EventArgs e)
         {
             current_Value += "2";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
         }
 
         private void button_number3_Click(object sender, EventArgs e)
         {
             current_Value += "3";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
         }
 
         private void button_number4_Click(object sender, EventArgs e)
         {
             current_Value += "4";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
         }
 
         private void button_number5_Click(object sender, EventArgs e)
         {
             current_Value += "5";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
         }
 
         private void button_number6_Click(object sender, EventArgs e)
         {
             current_Value += "6";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
         }
 
         private void button_number7_Click(object sender, EventArgs e)
         {
             current_Value += "7";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
-
         }
 
         private void button_number8_Click(object sender, EventArgs e)
         {
             current_Value += "8";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
-
         }
 
         private void button_number9_Click(object sender, EventArgs e)
         {
             current_Value += "9";
+            UpdatedDisplay();
             textBox_presentvalue.Text = current_Value;
-
         }
 
         private void button_number0_Click(object sender, EventArgs e)
         {
+            current_Value += "0";
+            UpdatedDisplay();
+
             if(current_Value != "0" && current_Value != "")
             {
                 current_Value += "0";
@@ -143,6 +169,6 @@ namespace calculating_machine
 
         }
 
-        
+
     }
 }
