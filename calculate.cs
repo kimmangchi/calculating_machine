@@ -11,25 +11,25 @@ namespace calculating_machine
         //더하기
         public double addtion(string x, string y)
         {
-            return double.Parse(x) + double.Parse(x);
+            return double.Parse(x) + double.Parse(y);
         }
 
         //빼기
         public double subtraction(string x, string y)
         {
-            return double.Parse(x) - double.Parse(x);
+            return double.Parse(x) - double.Parse(y);
         }
 
         //나누기
         public double division(string x, string y)
         {
-            return double.Parse(x) / double.Parse(x);
+            return double.Parse(x) / double.Parse(y);
         }
 
         //곱하기
         public double multiplication(string x, string y)
         {
-            return double.Parse(x) * double.Parse(x);
+            return double.Parse(x) * double.Parse(y);
         }
 
         // 제곱
