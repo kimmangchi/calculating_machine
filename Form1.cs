@@ -12,9 +12,9 @@ namespace calculating_machine
 {
     public partial class Form1 : Form
     {
-        decimal before_Value;
-        decimal current_Value;
-        decimal result_Value;
+        string before_Value;
+        string current_Value;
+        string result_Value;
 
         public Form1()
         {
