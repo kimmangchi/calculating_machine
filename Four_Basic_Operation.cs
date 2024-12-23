@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace calculating_machine
 {
-    class calculate_dseok
+    class Four_Basic_Operation
     {
         public double addtion(string x, string y)
         {
