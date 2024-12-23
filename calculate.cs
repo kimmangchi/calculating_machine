@@ -9,62 +9,78 @@ namespace calculating_machine
     class calculate
     {
         //더하기
-        public double addtion(string x, string y)
+        public string addtion(string x, string y)
         {
-            return double.Parse(x) + double.Parse(y);
+            double result = double.Parse(x) + double.Parse(y);
+            return result.ToString();
         }
 
         //빼기
-        public double subtraction(string x, string y)
+        public string subtraction(string x, string y)
         {
-            return double.Parse(x) - double.Parse(y);
+            double result = double.Parse(x) - double.Parse(y);
+            return result.ToString();
         }
 
         //나누기
-        public double division(string x, string y)
+        public string division(string x, string y)
         {
-            return double.Parse(x) / double.Parse(y);
+            double result = double.Parse(x) / double.Parse(y);
+            return result.ToString();
         }
 
         //곱하기
-        public double multiplication(string x, string y)
+        public string multiplication(string x, string y)
         {
-            return double.Parse(x) * double.Parse(y);
+            double result = double.Parse(x) * double.Parse(y);
+            return result.ToString();
         }
 
         // 제곱
-        public double GetSquare_Value(string x)
+        public string GetSquare_Value(string x)
         {
-            return double.Parse(x) * double.Parse(x);
+            double value = double.Parse(x);
+            if (value < 0.0) // x가 음수이면
+            {
+                value = Math.Abs(value);
+            }
+            double result = value * value;
+            return result.ToString();
+
         }
 
         // 제곱근
-        public double GetRoot_Value(string x)
+        public string GetRoot_Value(string x)
         {
-            double result = Math.Pow(double.Parse(x), 0.5);
-            return result;
+            double value = double.Parse(x);
 
+            if (value < 0.0) // 음수 입력 처리
+            {
+                return "입력이 잘못되었습니다.";
+            }
+
+            double result = Math.Pow(value, 0.5);
+            return result.ToString(); // 결과를 문자열로 반환
         }
 
         // 역수
-        public double GetInverse_Value(string x)
+        public string GetInverse_Value(string x)
         {
             if (double.Parse(x) == 0)
             {
-                return double.NaN;
+                return "0으로 나누지 마세요!";
             }
-            else
-            {
-                double result = 1 / double.Parse(x);
-                return result;
-            }
+
+            double result = 1 / double.Parse(x);
+            return result.ToString();
+
         }
 
         // 퍼센트(%)
-        public double GetPercentage_Value(string x)
+        public string GetPercentage_Value(string x)
         {
             double result = double.Parse(x) / 100;
-            return result;
+            return result.ToString();
         }
 
     }
