@@ -22,5 +22,105 @@ namespace calculating_machine
 
 
         }
+
+        private void button_percent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_ce_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_c_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_backspace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_multiple_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_subtract_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_covertsign_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_number0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_float_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_equal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
