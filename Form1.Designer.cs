@@ -61,20 +61,24 @@ namespace calculating_machine
             // 
             // textBox_prevalue
             // 
-            this.textBox_prevalue.Location = new System.Drawing.Point(16, 45);
-            this.textBox_prevalue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox_prevalue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox_prevalue.Location = new System.Drawing.Point(11, 30);
+            this.textBox_prevalue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_prevalue.Multiline = true;
             this.textBox_prevalue.Name = "textBox_prevalue";
-            this.textBox_prevalue.Size = new System.Drawing.Size(470, 42);
+            this.textBox_prevalue.ReadOnly = true;
+            this.textBox_prevalue.Size = new System.Drawing.Size(330, 29);
             this.textBox_prevalue.TabIndex = 0;
             // 
             // textBox_presentvalue
             // 
-            this.textBox_presentvalue.Location = new System.Drawing.Point(14, 93);
-            this.textBox_presentvalue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox_presentvalue.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox_presentvalue.Location = new System.Drawing.Point(10, 62);
+            this.textBox_presentvalue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_presentvalue.Multiline = true;
             this.textBox_presentvalue.Name = "textBox_presentvalue";
-            this.textBox_presentvalue.Size = new System.Drawing.Size(470, 67);
+            this.textBox_presentvalue.ReadOnly = true;
+            this.textBox_presentvalue.Size = new System.Drawing.Size(330, 46);
             this.textBox_presentvalue.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -108,8 +112,8 @@ namespace calculating_machine
             this.tableLayoutPanel1.Controls.Add(this.button_c, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_ce, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_percent, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 170);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 113);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -118,16 +122,16 @@ namespace calculating_machine
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 429);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 286);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // button_equal
             // 
             this.button_equal.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button_equal.Location = new System.Drawing.Point(355, 358);
-            this.button_equal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_equal.Location = new System.Drawing.Point(249, 237);
+            this.button_equal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_equal.Name = "button_equal";
-            this.button_equal.Size = new System.Drawing.Size(110, 63);
+            this.button_equal.Size = new System.Drawing.Size(77, 42);
             this.button_equal.TabIndex = 23;
             this.button_equal.Text = "=";
             this.button_equal.UseVisualStyleBackColor = false;
@@ -135,10 +139,10 @@ namespace calculating_machine
             // 
             // button_float
             // 
-            this.button_float.Location = new System.Drawing.Point(238, 358);
-            this.button_float.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_float.Location = new System.Drawing.Point(167, 237);
+            this.button_float.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_float.Name = "button_float";
-            this.button_float.Size = new System.Drawing.Size(109, 63);
+            this.button_float.Size = new System.Drawing.Size(76, 42);
             this.button_float.TabIndex = 22;
             this.button_float.Text = ".";
             this.button_float.UseVisualStyleBackColor = true;
@@ -147,10 +151,10 @@ namespace calculating_machine
             // button_number0
             // 
             this.button_number0.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number0.Location = new System.Drawing.Point(121, 358);
-            this.button_number0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number0.Location = new System.Drawing.Point(85, 237);
+            this.button_number0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number0.Name = "button_number0";
-            this.button_number0.Size = new System.Drawing.Size(109, 63);
+            this.button_number0.Size = new System.Drawing.Size(76, 42);
             this.button_number0.TabIndex = 21;
             this.button_number0.Text = "0";
             this.button_number0.UseVisualStyleBackColor = false;
@@ -158,10 +162,10 @@ namespace calculating_machine
             // 
             // button_covertsign
             // 
-            this.button_covertsign.Location = new System.Drawing.Point(4, 358);
-            this.button_covertsign.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_covertsign.Location = new System.Drawing.Point(3, 237);
+            this.button_covertsign.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_covertsign.Name = "button_covertsign";
-            this.button_covertsign.Size = new System.Drawing.Size(109, 63);
+            this.button_covertsign.Size = new System.Drawing.Size(76, 42);
             this.button_covertsign.TabIndex = 20;
             this.button_covertsign.Text = "+/-";
             this.button_covertsign.UseVisualStyleBackColor = true;
@@ -169,10 +173,10 @@ namespace calculating_machine
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(355, 287);
-            this.button_add.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_add.Location = new System.Drawing.Point(249, 190);
+            this.button_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(110, 63);
+            this.button_add.Size = new System.Drawing.Size(77, 42);
             this.button_add.TabIndex = 19;
             this.button_add.Text = "+";
             this.button_add.UseVisualStyleBackColor = true;
@@ -181,10 +185,10 @@ namespace calculating_machine
             // button_number3
             // 
             this.button_number3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number3.Location = new System.Drawing.Point(238, 287);
-            this.button_number3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number3.Location = new System.Drawing.Point(167, 190);
+            this.button_number3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number3.Name = "button_number3";
-            this.button_number3.Size = new System.Drawing.Size(109, 63);
+            this.button_number3.Size = new System.Drawing.Size(76, 42);
             this.button_number3.TabIndex = 18;
             this.button_number3.Text = "3";
             this.button_number3.UseVisualStyleBackColor = false;
@@ -193,10 +197,10 @@ namespace calculating_machine
             // button_number2
             // 
             this.button_number2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number2.Location = new System.Drawing.Point(121, 287);
-            this.button_number2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number2.Location = new System.Drawing.Point(85, 190);
+            this.button_number2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number2.Name = "button_number2";
-            this.button_number2.Size = new System.Drawing.Size(109, 63);
+            this.button_number2.Size = new System.Drawing.Size(76, 42);
             this.button_number2.TabIndex = 17;
             this.button_number2.Text = "2";
             this.button_number2.UseVisualStyleBackColor = false;
@@ -205,10 +209,10 @@ namespace calculating_machine
             // button_number1
             // 
             this.button_number1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number1.Location = new System.Drawing.Point(4, 287);
-            this.button_number1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number1.Location = new System.Drawing.Point(3, 190);
+            this.button_number1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number1.Name = "button_number1";
-            this.button_number1.Size = new System.Drawing.Size(109, 63);
+            this.button_number1.Size = new System.Drawing.Size(76, 42);
             this.button_number1.TabIndex = 16;
             this.button_number1.Text = "1";
             this.button_number1.UseVisualStyleBackColor = false;
@@ -216,10 +220,10 @@ namespace calculating_machine
             // 
             // button_subtract
             // 
-            this.button_subtract.Location = new System.Drawing.Point(355, 216);
-            this.button_subtract.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_subtract.Location = new System.Drawing.Point(249, 143);
+            this.button_subtract.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_subtract.Name = "button_subtract";
-            this.button_subtract.Size = new System.Drawing.Size(110, 63);
+            this.button_subtract.Size = new System.Drawing.Size(77, 42);
             this.button_subtract.TabIndex = 15;
             this.button_subtract.Text = "-";
             this.button_subtract.UseVisualStyleBackColor = true;
@@ -228,10 +232,10 @@ namespace calculating_machine
             // button_number6
             // 
             this.button_number6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number6.Location = new System.Drawing.Point(238, 216);
-            this.button_number6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number6.Location = new System.Drawing.Point(167, 143);
+            this.button_number6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number6.Name = "button_number6";
-            this.button_number6.Size = new System.Drawing.Size(109, 63);
+            this.button_number6.Size = new System.Drawing.Size(76, 42);
             this.button_number6.TabIndex = 14;
             this.button_number6.Text = "6";
             this.button_number6.UseVisualStyleBackColor = false;
@@ -240,10 +244,10 @@ namespace calculating_machine
             // button_number5
             // 
             this.button_number5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number5.Location = new System.Drawing.Point(121, 216);
-            this.button_number5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number5.Location = new System.Drawing.Point(85, 143);
+            this.button_number5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number5.Name = "button_number5";
-            this.button_number5.Size = new System.Drawing.Size(109, 63);
+            this.button_number5.Size = new System.Drawing.Size(76, 42);
             this.button_number5.TabIndex = 13;
             this.button_number5.Text = "5";
             this.button_number5.UseVisualStyleBackColor = false;
@@ -252,10 +256,10 @@ namespace calculating_machine
             // button_number4
             // 
             this.button_number4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number4.Location = new System.Drawing.Point(4, 216);
-            this.button_number4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number4.Location = new System.Drawing.Point(3, 143);
+            this.button_number4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number4.Name = "button_number4";
-            this.button_number4.Size = new System.Drawing.Size(109, 63);
+            this.button_number4.Size = new System.Drawing.Size(76, 42);
             this.button_number4.TabIndex = 12;
             this.button_number4.Text = "4";
             this.button_number4.UseVisualStyleBackColor = false;
@@ -263,10 +267,10 @@ namespace calculating_machine
             // 
             // button_multiple
             // 
-            this.button_multiple.Location = new System.Drawing.Point(355, 145);
-            this.button_multiple.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_multiple.Location = new System.Drawing.Point(249, 96);
+            this.button_multiple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_multiple.Name = "button_multiple";
-            this.button_multiple.Size = new System.Drawing.Size(110, 63);
+            this.button_multiple.Size = new System.Drawing.Size(77, 42);
             this.button_multiple.TabIndex = 11;
             this.button_multiple.Text = "×";
             this.button_multiple.UseVisualStyleBackColor = true;
@@ -275,10 +279,10 @@ namespace calculating_machine
             // button_number9
             // 
             this.button_number9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number9.Location = new System.Drawing.Point(238, 145);
-            this.button_number9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number9.Location = new System.Drawing.Point(167, 96);
+            this.button_number9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number9.Name = "button_number9";
-            this.button_number9.Size = new System.Drawing.Size(109, 63);
+            this.button_number9.Size = new System.Drawing.Size(76, 42);
             this.button_number9.TabIndex = 10;
             this.button_number9.Text = "9";
             this.button_number9.UseVisualStyleBackColor = false;
@@ -287,10 +291,10 @@ namespace calculating_machine
             // button_number8
             // 
             this.button_number8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number8.Location = new System.Drawing.Point(121, 145);
-            this.button_number8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number8.Location = new System.Drawing.Point(85, 96);
+            this.button_number8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number8.Name = "button_number8";
-            this.button_number8.Size = new System.Drawing.Size(109, 63);
+            this.button_number8.Size = new System.Drawing.Size(76, 42);
             this.button_number8.TabIndex = 9;
             this.button_number8.Text = "8";
             this.button_number8.UseVisualStyleBackColor = false;
@@ -299,10 +303,10 @@ namespace calculating_machine
             // button_number7
             // 
             this.button_number7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_number7.Location = new System.Drawing.Point(4, 145);
-            this.button_number7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_number7.Location = new System.Drawing.Point(3, 96);
+            this.button_number7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_number7.Name = "button_number7";
-            this.button_number7.Size = new System.Drawing.Size(109, 63);
+            this.button_number7.Size = new System.Drawing.Size(76, 42);
             this.button_number7.TabIndex = 8;
             this.button_number7.Text = "7";
             this.button_number7.UseVisualStyleBackColor = false;
@@ -310,10 +314,10 @@ namespace calculating_machine
             // 
             // button_divide
             // 
-            this.button_divide.Location = new System.Drawing.Point(355, 74);
-            this.button_divide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_divide.Location = new System.Drawing.Point(249, 49);
+            this.button_divide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_divide.Name = "button_divide";
-            this.button_divide.Size = new System.Drawing.Size(110, 63);
+            this.button_divide.Size = new System.Drawing.Size(77, 42);
             this.button_divide.TabIndex = 7;
             this.button_divide.Text = "÷";
             this.button_divide.UseVisualStyleBackColor = true;
@@ -321,40 +325,40 @@ namespace calculating_machine
             // 
             // button_squareroot
             // 
-            this.button_squareroot.Location = new System.Drawing.Point(238, 74);
-            this.button_squareroot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_squareroot.Location = new System.Drawing.Point(167, 49);
+            this.button_squareroot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_squareroot.Name = "button_squareroot";
-            this.button_squareroot.Size = new System.Drawing.Size(109, 63);
+            this.button_squareroot.Size = new System.Drawing.Size(76, 42);
             this.button_squareroot.TabIndex = 6;
             this.button_squareroot.Text = "√x";
             this.button_squareroot.UseVisualStyleBackColor = true;
             // 
             // button_spuare
             // 
-            this.button_spuare.Location = new System.Drawing.Point(121, 74);
-            this.button_spuare.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_spuare.Location = new System.Drawing.Point(85, 49);
+            this.button_spuare.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_spuare.Name = "button_spuare";
-            this.button_spuare.Size = new System.Drawing.Size(109, 63);
+            this.button_spuare.Size = new System.Drawing.Size(76, 42);
             this.button_spuare.TabIndex = 5;
             this.button_spuare.Text = "x²";
             this.button_spuare.UseVisualStyleBackColor = true;
             // 
             // button_invert
             // 
-            this.button_invert.Location = new System.Drawing.Point(4, 74);
-            this.button_invert.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_invert.Location = new System.Drawing.Point(3, 49);
+            this.button_invert.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_invert.Name = "button_invert";
-            this.button_invert.Size = new System.Drawing.Size(109, 63);
+            this.button_invert.Size = new System.Drawing.Size(76, 42);
             this.button_invert.TabIndex = 4;
             this.button_invert.Text = "1/x";
             this.button_invert.UseVisualStyleBackColor = true;
             // 
             // button_backspace
             // 
-            this.button_backspace.Location = new System.Drawing.Point(355, 3);
-            this.button_backspace.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_backspace.Location = new System.Drawing.Point(249, 2);
+            this.button_backspace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_backspace.Name = "button_backspace";
-            this.button_backspace.Size = new System.Drawing.Size(110, 63);
+            this.button_backspace.Size = new System.Drawing.Size(77, 42);
             this.button_backspace.TabIndex = 3;
             this.button_backspace.Text = "←";
             this.button_backspace.UseVisualStyleBackColor = true;
@@ -362,10 +366,10 @@ namespace calculating_machine
             // 
             // button_c
             // 
-            this.button_c.Location = new System.Drawing.Point(238, 3);
-            this.button_c.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_c.Location = new System.Drawing.Point(167, 2);
+            this.button_c.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_c.Name = "button_c";
-            this.button_c.Size = new System.Drawing.Size(109, 63);
+            this.button_c.Size = new System.Drawing.Size(76, 42);
             this.button_c.TabIndex = 2;
             this.button_c.Text = "C";
             this.button_c.UseVisualStyleBackColor = true;
@@ -373,10 +377,10 @@ namespace calculating_machine
             // 
             // button_ce
             // 
-            this.button_ce.Location = new System.Drawing.Point(121, 3);
-            this.button_ce.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_ce.Location = new System.Drawing.Point(85, 2);
+            this.button_ce.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_ce.Name = "button_ce";
-            this.button_ce.Size = new System.Drawing.Size(109, 63);
+            this.button_ce.Size = new System.Drawing.Size(76, 42);
             this.button_ce.TabIndex = 1;
             this.button_ce.Text = "CE";
             this.button_ce.UseVisualStyleBackColor = true;
@@ -384,10 +388,10 @@ namespace calculating_machine
             // 
             // button_percent
             // 
-            this.button_percent.Location = new System.Drawing.Point(4, 3);
-            this.button_percent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button_percent.Location = new System.Drawing.Point(3, 2);
+            this.button_percent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_percent.Name = "button_percent";
-            this.button_percent.Size = new System.Drawing.Size(109, 63);
+            this.button_percent.Size = new System.Drawing.Size(76, 42);
             this.button_percent.TabIndex = 0;
             this.button_percent.Text = "%";
             this.button_percent.UseVisualStyleBackColor = true;
@@ -395,13 +399,13 @@ namespace calculating_machine
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 614);
+            this.ClientSize = new System.Drawing.Size(352, 409);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox_presentvalue);
             this.Controls.Add(this.textBox_prevalue);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "y7";
             this.tableLayoutPanel1.ResumeLayout(false);
