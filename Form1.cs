@@ -211,21 +211,19 @@ namespace calculating_machine
         {
             if (textBox_presentvalue.Text.Length != 0)
             {
-                if (result_Value != "")
+                result_Value = cal.GetInverse_Value(textBox_presentvalue.Text);
+                if (result_Value == "0으로 나누지 마세요!")
                 {
-                    result_Value = cal.GetInverse_Value(textBox_presentvalue.Text);
-                    if (result_Value == "0으로 나누지 마세요!")
-                    {
-                        textBox_presentvalue.Text = result_Value;
-                        result_Value = "";
-                        textBox_prevalue.Text = "";
-                    }
-                    else
-                    {
-                        current_Value = "";
-                        textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
-                        textBox_presentvalue.Text = result_Value;
-                    }
+                    textBox_presentvalue.Text = result_Value;
+                    result_Value = "";
+                    textBox_prevalue.Text = "";
+                }
+
+                else
+                {
+                    current_Value = "";
+                    textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
+                    textBox_presentvalue.Text = result_Value;
                 }
             }
         }
@@ -245,24 +243,21 @@ namespace calculating_machine
         {
             if (textBox_presentvalue.Text.Length != 0)
             {
-                if (result_Value == "")
+                result_Value = cal.GetRoot_Value(textBox_presentvalue.Text);
+                if (result_Value == "입력이 잘못되었습니다.")
                 {
-                    result_Value = cal.GetRoot_Value(textBox_presentvalue.Text);
-                    if (result_Value == "입력이 잘못되었습니다.")
-                    {
-                        textBox_presentvalue.Text = result_Value;
-                        result_Value = "";
-                        textBox_prevalue.Text = "";
-                    }
-                    else
-                    {
-                        current_Value = "";
-                        textBox_prevalue.Text = result_Value;
-                        textBox_presentvalue.Text = "";
-                    }
+                    textBox_presentvalue.Text = result_Value;
+                    result_Value = "";
+                    textBox_prevalue.Text = "";
                 }
-
+                else
+                {
+                    current_Value = "";
+                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = "";
+                }
             }
+
         }
 
         private void button_float_Click(object sender, EventArgs e)
