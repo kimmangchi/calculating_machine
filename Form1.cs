@@ -82,7 +82,7 @@ namespace calculating_machine
         // 0을 추가할 때는 0123 이런 경우 방지를 위한 예외 처리를 한다.
         private void button_number0_Click(object sender, EventArgs e)
         {
-            if(current_Value != "0")
+            if (current_Value != "0")
             {
                 current_Value += "0";
                 textBox_presentvalue.Text = current_Value;
@@ -108,7 +108,7 @@ namespace calculating_machine
 
         private void button_backspace_Click(object sender, EventArgs e)
         {
-            if(current_Value.Length > 0)
+            if (current_Value.Length > 0)
             {
                 current_Value = current_Value.Substring(0, current_Value.Length - 1);
                 textBox_presentvalue.Text = current_Value;
@@ -120,14 +120,14 @@ namespace calculating_machine
             {
                 result_Value = textBox_presentvalue.Text;
             }
-            textBox_prevalue.Text = result_Value+"+";
+            textBox_prevalue.Text = result_Value + "+";
             current_Value = "";
             textBox_presentvalue.Text = "";
             operation = "+";
         }
         private void button_subtract_Click(object sender, EventArgs e)
         {
-            if(current_Value.Length == 0)
+            if (current_Value.Length == 0)
             {
                 current_Value += "-";
                 textBox_presentvalue.Text = current_Value;
@@ -167,7 +167,7 @@ namespace calculating_machine
         // --------------------------------------------------------
         private void button_covertsign_Click(object sender, EventArgs e)
         {
-            if(current_Value.Length > 0)
+            if (current_Value.Length > 0)
             {
                 double resConvert = double.Parse(current_Value) * -1;
                 current_Value = resConvert.ToString();
@@ -184,9 +184,9 @@ namespace calculating_machine
                 textBox_prevalue.Text = result_Value;
                 textBox_presentvalue.Text = "";
             }
-            else if(result_Value != "")
+            else if (result_Value != "")
             {
-                result_Value = (double.Parse(result_Value)/100).ToString();
+                result_Value = (double.Parse(result_Value) / 100).ToString();
                 current_Value = "";
                 textBox_prevalue.Text = result_Value;
                 textBox_presentvalue.Text = "";
@@ -229,7 +229,7 @@ namespace calculating_machine
             if (result_Value == "")
             {
                 result_Value = cal.GetRoot_Value(textBox_presentvalue.Text);
-                if(result_Value == "입력이 잘못되었습니다.")
+                if (result_Value == "입력이 잘못되었습니다.")
                 {
                     textBox_presentvalue.Text = result_Value;
                     result_Value = "";
@@ -247,9 +247,9 @@ namespace calculating_machine
         private void button_float_Click(object sender, EventArgs e)
         {
             // 소수점은 하나만 있어야 한다.
-            if(current_Value.IndexOf(".") == -1)
+            if (current_Value.IndexOf(".") == -1)
             {
-                current_Value += "."; 
+                current_Value += ".";
             }
         }
         private void button_equal_Click(object sender, EventArgs e)
