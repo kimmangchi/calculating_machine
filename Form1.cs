@@ -223,7 +223,7 @@ namespace calculating_machine
                     else
                     {
                         current_Value = "";
-                        textBox_prevalue.Text = "1/("+ textBox_presentvalue.Text+")";
+                        textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
                         textBox_presentvalue.Text = result_Value;
                     }
                 }
