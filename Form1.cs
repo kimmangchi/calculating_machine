@@ -229,7 +229,7 @@ namespace calculating_machine
             if (textBox_presentvalue.Text.Length != 0)
             {
                 result_Value = cal.GetSquare_Value(textBox_presentvalue.Text);
-                textBox_prevalue.Text = "sqrt(" + textBox_presentvalue.Text + ")";
+                textBox_prevalue.Text = "(" + textBox_presentvalue.Text + ")²";
                 current_Value = "";
                 textBox_presentvalue.Text = result_Value;
             }
