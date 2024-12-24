@@ -23,6 +23,7 @@ namespace calculating_machine
         {
             InitializeComponent();
         }
+        /// 넘패드 숫자 입력
 
         private void button_number1_Click(object sender, EventArgs e)
         {
@@ -78,36 +79,41 @@ namespace calculating_machine
             textBox_presentvalue.Text = current_Value;
         }
 
+        // 0을 추가할 때는 0123 이런 경우 방지를 위한 예외 처리를 한다.
         private void button_number0_Click(object sender, EventArgs e)
         {
-            if(current_Value != "0" && current_Value != "")
+            if(current_Value != "0")
             {
                 current_Value += "0";
                 textBox_presentvalue.Text = current_Value;
             }
         }
+        /// 넘패드 입력
         private void button_ce_Click(object sender, EventArgs e)
         {
             current_Value = "";
             result_Value = "";
             before_Value = "";
             operation = "";
-            textBox_presentvalue.Text = current_Value;
+            textBox_presentvalue.Text = "";
+            textBox_prevalue.Text = "";
         }
 
         private void button_c_Click(object sender, EventArgs e)
         {
             current_Value = "";
             textBox_presentvalue.Text = "";
+            operation = "";
         }
 
         private void button_backspace_Click(object sender, EventArgs e)
         {
-            current_Value = current_Value.Substring(0, current_Value.Length - 1);
-            textBox_presentvalue.Text = current_Value;
+            if(current_Value.Length > 0)
+            {
+                current_Value = current_Value.Substring(0, current_Value.Length - 1);
+                textBox_presentvalue.Text = current_Value;
+            }
         }
-
-
         private void button_add_Click(object sender, EventArgs e)
         {
             if (result_Value == "")
@@ -120,13 +126,21 @@ namespace calculating_machine
         }
         private void button_subtract_Click(object sender, EventArgs e)
         {
-            if(result_Value == "")
+            if(current_Value.Length == 0)
             {
-                result_Value = textBox_presentvalue.Text;
-            }
-            current_Value = "";
-            textBox_presentvalue.Text = "";
-            operation = "-";
+                current_Value += "-";
+                textBox_presentvalue.Text = current_Value;
+            } // 음수 입력 -10
+            else
+            {
+                if (result_Value == "")
+                {
+                    result_Value = textBox_presentvalue.Text;
+                }
+                current_Value = "";
+                textBox_presentvalue.Text = "";
+                operation = "-";
+            } // 빼기
         }
 
         private void button_multiple_Click(object sender, EventArgs e)
@@ -149,40 +163,107 @@ namespace calculating_machine
             textBox_presentvalue.Text = "";
             operation = "/";
         }
+        // --------------------------------------------------------
         private void button_covertsign_Click(object sender, EventArgs e)
         {
-            double resConvert = double.Parse(current_Value) * -1;
-            current_Value = resConvert.ToString();
-            textBox_presentvalue.Text = current_Value;
+            if(current_Value.Length > 0)
+            {
+                double resConvert = double.Parse(current_Value) * -1;
+                current_Value = resConvert.ToString();
+                textBox_presentvalue.Text = current_Value;
+            }
         }
+
         private void button_percent_Click(object sender, EventArgs e)
         {
-
+            if (result_Value == "")
+            {
+                result_Value = cal.GetPercentage_Value(textBox_presentvalue.Text);
+                current_Value = "";
+                textBox_prevalue.Text = result_Value;
+                textBox_presentvalue.Text = "";
+            }
         }
+
+        private void button_invert_Click(object sender, EventArgs e)
+        {
+            if (result_Value == "")
+            {
+                result_Value = cal.GetInverse_Value(textBox_presentvalue.Text);
+                if (result_Value == "0으로 나누지 마세요!")
+                {
+                    textBox_presentvalue.Text = result_Value;
+                    result_Value = "";
+                    textBox_prevalue.Text = "";
+                }
+                else
+                {
+                    current_Value = "";
+                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = "";
+                }
+            }
+        }
+
+        private void button_spuare_Click(object sender, EventArgs e)
+        {
+            if (result_Value == "")
+            {
+                result_Value = cal.GetSquare_Value(textBox_presentvalue.Text);
+            }
+            current_Value = "";
+            textBox_prevalue.Text = result_Value;
+            textBox_presentvalue.Text = "";
+        }
+
+        private void button_squareroot_Click(object sender, EventArgs e)
+        {
+            if (result_Value == "")
+            {
+                result_Value = cal.GetRoot_Value(textBox_presentvalue.Text);
+                if(result_Value == "입력이 잘못되었습니다.")
+                {
+                    textBox_presentvalue.Text = result_Value;
+                    result_Value = "";
+                    textBox_prevalue.Text = "";
+                }
+                else
+                {
+                    current_Value = "";
+                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = "";
+                }
+            }
+        }
+
         private void button_float_Click(object sender, EventArgs e)
         {
-
+            // 소수점은 하나만 있어야 한다.
+            if(current_Value.IndexOf(".") == -1)
+            {
+                current_Value += "."; 
+            }
         }
         private void button_equal_Click(object sender, EventArgs e)
         {
             switch (operation)
             {
-                case "+":
+                case "+": // 더하기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.addtion(result_Value, current_Value);
                     textBox_prevalue.Text = result_Value;
                     break;
-                case "-":
+                case "-": // 빼기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.subtraction(result_Value, current_Value);
                     textBox_prevalue.Text = result_Value;
                     break;
-                case "*":
+                case "*": // 곱하기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.multiplication(result_Value, current_Value);
                     textBox_prevalue.Text = result_Value;
                     break;
-                case "/":
+                case "/": // 나누기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.division(result_Value, current_Value);
                     textBox_prevalue.Text = result_Value;

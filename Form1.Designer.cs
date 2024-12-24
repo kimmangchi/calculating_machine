@@ -332,6 +332,7 @@ namespace calculating_machine
             this.button_squareroot.TabIndex = 6;
             this.button_squareroot.Text = "√x";
             this.button_squareroot.UseVisualStyleBackColor = true;
+            this.button_squareroot.Click += new System.EventHandler(this.button_squareroot_Click);
             // 
             // button_spuare
             // 
@@ -342,6 +343,7 @@ namespace calculating_machine
             this.button_spuare.TabIndex = 5;
             this.button_spuare.Text = "x²";
             this.button_spuare.UseVisualStyleBackColor = true;
+            this.button_spuare.Click += new System.EventHandler(this.button_spuare_Click);
             // 
             // button_invert
             // 
@@ -352,6 +354,7 @@ namespace calculating_machine
             this.button_invert.TabIndex = 4;
             this.button_invert.Text = "1/x";
             this.button_invert.UseVisualStyleBackColor = true;
+            this.button_invert.Click += new System.EventHandler(this.button_invert_Click);
             // 
             // button_backspace
             // 
