@@ -211,7 +211,7 @@ namespace calculating_machine
         {
             if (textBox_presentvalue.Text.Length != 0)
             {
-                if (result_Value == "")
+                if (result_Value != "")
                 {
                     result_Value = cal.GetInverse_Value(textBox_presentvalue.Text);
                     if (result_Value == "0으로 나누지 마세요!")
@@ -223,8 +223,8 @@ namespace calculating_machine
                     else
                     {
                         current_Value = "";
-                        textBox_prevalue.Text = result_Value;
-                        textBox_presentvalue.Text = "";
+                        textBox_prevalue.Text = "1/("+ textBox_presentvalue.Text+")";
+                        textBox_presentvalue.Text = result_Value;
                     }
                 }
             }
