@@ -334,6 +334,14 @@ namespace calculating_machine
                     }
                     textBox_presentvalue.Text = "";
                     result_Value = cal.division(result_Value, current_Value);
+                    if(result_Value == "∞")
+                    {
+                        textBox_presentvalue.Text = "0으로 나눌 수 없습니다.";
+                        operation = "";
+                        result_Value = "";
+                        textBox_prevalue.Text = "";
+                        break;
+                    }
                     textBox_presentvalue.Text = result_Value;
                     operation = "";
                     break;
