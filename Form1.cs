@@ -191,7 +191,7 @@ namespace calculating_machine
             {
                 if (result_Value == "")
                 {
-                    result_Value = cal.GetPercentage_Value(textBox_presentvalue.Text);
+                    result_Value = "0";
                     current_Value = "";
                     textBox_prevalue.Text = result_Value;
                     textBox_presentvalue.Text = "";
@@ -223,7 +223,7 @@ namespace calculating_machine
                     else
                     {
                         current_Value = "";
-                        textBox_prevalue.Text = "1/("+ textBox_presentvalue.Text+")";
+                        textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
                         textBox_presentvalue.Text = result_Value;
                     }
                 }
