@@ -92,18 +92,18 @@ namespace calculating_machine
         private void button_ce_Click(object sender, EventArgs e)
         {
             current_Value = "";
+            textBox_presentvalue.Text = "";
+            operation = "";
+        }
+
+        private void button_c_Click(object sender, EventArgs e)
+        {       
+            current_Value = "";
             result_Value = "";
             before_Value = "";
             operation = "";
             textBox_presentvalue.Text = "";
             textBox_prevalue.Text = "";
-        }
-
-        private void button_c_Click(object sender, EventArgs e)
-        {
-            current_Value = "";
-            textBox_presentvalue.Text = "";
-            operation = "";
         }
 
         private void button_backspace_Click(object sender, EventArgs e)
@@ -191,7 +191,7 @@ namespace calculating_machine
             {
                 if (result_Value == "")
                 {
-                    result_Value = cal.GetPercentage_Value(textBox_presentvalue.Text);
+                    result_Value = "0";
                     current_Value = "";
                     textBox_prevalue.Text = result_Value;
                     textBox_presentvalue.Text = "";
