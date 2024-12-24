@@ -122,7 +122,7 @@ namespace calculating_machine
                 {
                     result_Value = textBox_presentvalue.Text;
                 }
-                textBox_prevalue.Text = result_Value + "+";
+                textBox_prevalue.Text = result_Value + " + ";
                 current_Value = "";
                 textBox_presentvalue.Text = "";
                 operation = "+";
@@ -156,7 +156,7 @@ namespace calculating_machine
                 {
                     result_Value = textBox_presentvalue.Text;
                 }
-                textBox_prevalue.Text = result_Value + "x";
+                textBox_prevalue.Text = result_Value + " × ";
                 current_Value = "";
                 textBox_presentvalue.Text = "";
                 operation = "*";
@@ -169,7 +169,7 @@ namespace calculating_machine
                 result_Value = textBox_presentvalue.Text;
             }
             current_Value = "";
-            textBox_prevalue.Text = result_Value + "/";
+            textBox_prevalue.Text = result_Value + " ÷ ";
             textBox_presentvalue.Text = "";
             operation = "/";
         }
@@ -191,7 +191,7 @@ namespace calculating_machine
             {
                 if (result_Value == "")
                 {
-                    result_Value = cal.GetPercentage_Value(textBox_presentvalue.Text);
+                    result_Value = "0";
                     current_Value = "";
                     textBox_prevalue.Text = result_Value;
                     textBox_presentvalue.Text = "";
@@ -281,9 +281,9 @@ namespace calculating_machine
                     if (current_Value == "") break; // 연산자가 비어있는 경우
                     textBox_presentvalue.Text = ""; // 현재 입력 값 삭제
                     result_Value = cal.addtion(result_Value, current_Value);
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != '+')
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '+')
                     {
-                        textBox_prevalue.Text = (result_Value + "+" + current_Value);
+                        textBox_prevalue.Text = (result_Value + " + " + current_Value);
                     }
                     else
                     {
@@ -294,9 +294,9 @@ namespace calculating_machine
 
                 case "-": // 빼기
                     if (current_Value == "") break;
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != '-')
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '-')
                     {
-                        textBox_prevalue.Text = (result_Value + "-" + current_Value);
+                        textBox_prevalue.Text = (result_Value + " - " + current_Value);
                     }
                     else
                     {
@@ -309,9 +309,9 @@ namespace calculating_machine
                     break;
                 case "*": // 곱하기
                     if (current_Value == "") break;
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != 'x')
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '×')
                     {
-                        textBox_prevalue.Text = (result_Value + "x" + current_Value);
+                        textBox_prevalue.Text = (result_Value + " × " + current_Value);
                     }
                     else
                     {
@@ -324,9 +324,9 @@ namespace calculating_machine
                     break;
                 case "/": // 나누기
                     if (current_Value == "") break;
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != '/')
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != '÷')
                     {
-                        textBox_prevalue.Text = (result_Value + "/" + current_Value);
+                        textBox_prevalue.Text = (result_Value + " ÷ " + current_Value);
                     }
                     else
                     {
