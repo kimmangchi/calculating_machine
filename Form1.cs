@@ -120,6 +120,7 @@ namespace calculating_machine
             {
                 result_Value = textBox_presentvalue.Text;
             }
+            textBox_prevalue.Text = result_Value+"+";
             current_Value = "";
             textBox_presentvalue.Text = "";
             operation = "+";
@@ -251,22 +252,26 @@ namespace calculating_machine
                 case "+": // 더하기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.addtion(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    textBox_prevalue.Text += current_Value;
+                    textBox_presentvalue.Text = result_Value;
                     break;
                 case "-": // 빼기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.subtraction(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = result_Value;
+                    operation = "";
                     break;
                 case "*": // 곱하기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.multiplication(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = result_Value;
+                    operation = "";
                     break;
                 case "/": // 나누기
                     textBox_presentvalue.Text = "";
                     result_Value = cal.division(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = result_Value;
+                    operation = "";
                     break;
             }
         }
