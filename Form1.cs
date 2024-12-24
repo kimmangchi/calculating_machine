@@ -17,6 +17,8 @@ namespace calculating_machine
         string current_Value = "";
         string result_Value = "";
         string operation = "";
+        string calculate_Result_Value = "";
+
 
         bool isEqualPressed = false;
         public Form1()
@@ -118,7 +120,7 @@ namespace calculating_machine
         {
             if (result_Value == "")
             {
-                result_Value = textBox_presentvalue.Text;
+                result_Value = textBox_presentvalue.Text ;
             }
             current_Value = "";
             textBox_presentvalue.Text = "";
@@ -257,23 +259,32 @@ namespace calculating_machine
             {
                 case "+": // 더하기
                     textBox_presentvalue.Text = "";
-                    result_Value = cal.addtion(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    textBox_prevalue.Text = "";
+                    calculate_Result_Value = cal.addtion(result_Value, current_Value);
+                    textBox_prevalue.Text = result_Value + " + " + current_Value + " = ";
+                    textBox_prevalue.Text += calculate_Result_Value;
+                    result_Value = calculate_Result_Value;
                     break;
                 case "-": // 빼기
                     textBox_presentvalue.Text = "";
-                    result_Value = cal.subtraction(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    calculate_Result_Value = cal.subtraction(result_Value, current_Value);
+                    textBox_prevalue.Text = result_Value + " - " + current_Value + " = ";
+                    textBox_prevalue.Text += calculate_Result_Value;
+                    result_Value = calculate_Result_Value;
                     break;
                 case "*": // 곱하기
                     textBox_presentvalue.Text = "";
-                    result_Value = cal.multiplication(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    calculate_Result_Value = cal.multiplication(result_Value, current_Value);
+                    textBox_prevalue.Text = result_Value + " × " + current_Value + " = ";
+                    textBox_prevalue.Text += calculate_Result_Value;
+                    result_Value = calculate_Result_Value;
                     break;
                 case "/": // 나누기
                     textBox_presentvalue.Text = "";
-                    result_Value = cal.division(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    calculate_Result_Value = cal.division(result_Value, current_Value);
+                    textBox_prevalue.Text = result_Value + " ÷ " + current_Value + " = ";
+                    textBox_prevalue.Text += calculate_Result_Value;
+                    result_Value = calculate_Result_Value;
                     break;
             }
         }
