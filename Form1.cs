@@ -253,8 +253,8 @@ namespace calculating_machine
                 else
                 {
                     current_Value = "";
-                    textBox_prevalue.Text = result_Value;
-                    textBox_presentvalue.Text = "";
+                    textBox_prevalue.Text = "sqrt(" + textBox_presentvalue.Text + ")";
+                    textBox_presentvalue.Text = result_Value;
                 }
             }
 
