@@ -183,6 +183,13 @@ namespace calculating_machine
                 textBox_prevalue.Text = result_Value;
                 textBox_presentvalue.Text = "";
             }
+            else if(result_Value != "")
+            {
+                result_Value = (double.Parse(result_Value)/100).ToString();
+                current_Value = "";
+                textBox_prevalue.Text = result_Value;
+                textBox_presentvalue.Text = "";
+            }
         }
 
         private void button_invert_Click(object sender, EventArgs e)
