@@ -17,8 +17,6 @@ namespace calculating_machine
         string current_Value = "";
         string result_Value = "";
         string operation = "";
-        string calculate_Result_Value = "";
-
 
         bool isEqualPressed = false;
         public Form1()
@@ -118,13 +116,17 @@ namespace calculating_machine
         }
         private void button_add_Click(object sender, EventArgs e)
         {
-            if (result_Value == "")
+            if (current_Value.Length != 0)
             {
-                result_Value = textBox_presentvalue.Text;
+                if (result_Value == "")
+                {
+                    result_Value = textBox_presentvalue.Text;
+                }
+                textBox_prevalue.Text = result_Value + "+";
+                current_Value = "";
+                textBox_presentvalue.Text = "";
+                operation = "+";
             }
-            current_Value = "";
-            textBox_presentvalue.Text = "";
-            operation = "+";
         }
         private void button_subtract_Click(object sender, EventArgs e)
         {
@@ -221,7 +223,7 @@ namespace calculating_machine
                     else
                     {
                         current_Value = "";
-                        textBox_prevalue.Text = "1/("+ textBox_presentvalue.Text+")";
+                        textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
                         textBox_presentvalue.Text = result_Value;
                     }
                 }
@@ -276,18 +278,45 @@ namespace calculating_machine
             switch (operation)
             {
                 case "+": // 더하기
-                    textBox_presentvalue.Text = "";
+                    if (current_Value == "") break; // 연산자가 비어있는 경우
+                    textBox_presentvalue.Text = ""; // 현재 입력 값 삭제
                     result_Value = cal.addtion(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != '+')
+                    {
+                        textBox_prevalue.Text = (result_Value + "+" + current_Value);
+                    }
+                    else
+                    {
+                        textBox_prevalue.Text += current_Value;
+                    }
+                    textBox_presentvalue.Text = result_Value;
                     break;
 
                 case "-": // 빼기
+                    if (current_Value == "") break;
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != '-')
+                    {
+                        textBox_prevalue.Text = (result_Value + "-" + current_Value);
+                    }
+                    else
+                    {
+                        textBox_prevalue.Text += current_Value;
+                    }
                     textBox_presentvalue.Text = "";
                     result_Value = cal.subtraction(result_Value, current_Value);
                     textBox_presentvalue.Text = result_Value;
                     operation = "";
                     break;
                 case "*": // 곱하기
+                    if (current_Value == "") break;
+                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 1] != 'x')
+                    {
+                        textBox_prevalue.Text = (result_Value + "x" + current_Value);
+                    }
+                    else
+                    {
+                        textBox_prevalue.Text += current_Value;
+                    }
                     textBox_presentvalue.Text = "";
                     result_Value = cal.multiplication(result_Value, current_Value);
                     textBox_presentvalue.Text = result_Value;
@@ -305,7 +334,8 @@ namespace calculating_machine
                     }
                     textBox_presentvalue.Text = "";
                     result_Value = cal.division(result_Value, current_Value);
-                    textBox_prevalue.Text = result_Value;
+                    textBox_presentvalue.Text = result_Value;
+                    operation = "";
                     break;
             }
         }
