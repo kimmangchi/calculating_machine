@@ -212,20 +212,16 @@ namespace calculating_machine
             if (textBox_presentvalue.Text.Length != 0)
             {
                 result_Value = cal.GetInverse_Value(textBox_presentvalue.Text);
-                if (result_Value == "0으로 나누지 마세요!")
-                {
-                    textBox_presentvalue.Text = result_Value;
-                    result_Value = "";
-                    textBox_prevalue.Text = "";
-                }
-
-                else
-                {
-                    current_Value = "";
-                    textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
-                    textBox_presentvalue.Text = result_Value;
-                }
+                current_Value = "";
+                textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
+                textBox_presentvalue.Text = result_Value;
             }
+
+            else if (textBox_presentvalue.Text.Length == 0)
+            {
+                textBox_presentvalue.Text = "0으로 나누지 마세요!";
+                textBox_prevalue.Text = "1/0";
+            } 
         }
 
         private void button_spuare_Click(object sender, EventArgs e)
