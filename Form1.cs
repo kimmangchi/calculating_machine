@@ -10,200 +10,217 @@ using System.Windows.Forms;
 
 namespace calculating_machine
 {
+    public struct CalculatorState
+    {
+        public string BeforeValue { get; set; }
+        public string CurrentValue { get; set; }
+        public string ResultValue { get; set; }
+        public string Operation { get; set; }
+        public bool IsEqualPressed { get; set; }
+    }
+
     public partial class Form1 : Form
     {
         calculate cal = new calculate();
-        string before_Value = "";
-        string current_Value = "";
-        string result_Value = "";
-        string operation = "";
+        CalculatorState state;
 
-        bool isEqualPressed = false;
         public Form1()
         {
             InitializeComponent();
+            state = new CalculatorState
+            {
+                BeforeValue = "",
+                CurrentValue = "",
+                ResultValue = "",
+                Operation = "",
+                IsEqualPressed = false
+            };
         }
-        /// 넘패드 숫자 입력
 
-        private void button_number1_Click(object sender, EventArgs e)
+        private void UpdateDisplay()
         {
-            current_Value += "1";
-            textBox_presentvalue.Text = current_Value;
+            textBox_presentvalue.Text = state.CurrentValue;
+            textBox_prevalue.Text = $"{state.ResultValue} {state.Operation}";
         }
 
-        private void button_number2_Click(object sender, EventArgs e)
+        private void AppendNumber(string number)
         {
-            current_Value += "2";
-            textBox_presentvalue.Text = current_Value;
+            state.CurrentValue += number;
+            UpdateDisplay();
         }
 
-        private void button_number3_Click(object sender, EventArgs e)
-        {
-            current_Value += "3";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        private void button_number4_Click(object sender, EventArgs e)
-        {
-            current_Value += "4";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        private void button_number5_Click(object sender, EventArgs e)
-        {
-            current_Value += "5";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        private void button_number6_Click(object sender, EventArgs e)
-        {
-            current_Value += "6";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        private void button_number7_Click(object sender, EventArgs e)
-        {
-            current_Value += "7";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        private void button_number8_Click(object sender, EventArgs e)
-        {
-            current_Value += "8";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        private void button_number9_Click(object sender, EventArgs e)
-        {
-            current_Value += "9";
-            textBox_presentvalue.Text = current_Value;
-        }
-
-        // 0을 추가할 때는 0123 이런 경우 방지를 위한 예외 처리를 한다.
+        private void button_number1_Click(object sender, EventArgs e) => AppendNumber("1");
+        private void button_number2_Click(object sender, EventArgs e) => AppendNumber("2");
+        private void button_number3_Click(object sender, EventArgs e) => AppendNumber("3");
+        private void button_number4_Click(object sender, EventArgs e) => AppendNumber("4");
+        private void button_number5_Click(object sender, EventArgs e) => AppendNumber("5");
+        private void button_number6_Click(object sender, EventArgs e) => AppendNumber("6");
+        private void button_number7_Click(object sender, EventArgs e) => AppendNumber("7");
+        private void button_number8_Click(object sender, EventArgs e) => AppendNumber("8");
+        private void button_number9_Click(object sender, EventArgs e) => AppendNumber("9");
         private void button_number0_Click(object sender, EventArgs e)
         {
-            if (current_Value != "0")
+            if (state.CurrentValue != "0")
             {
-                current_Value += "0";
-                textBox_presentvalue.Text = current_Value;
+                AppendNumber("0");
             }
         }
-        /// 넘패드 입력
+
         private void button_ce_Click(object sender, EventArgs e)
         {
-            current_Value = "";
+            state.CurrentValue = "";
             textBox_presentvalue.Text = "";
-            operation = "";
+            state.Operation = "";
         }
 
         private void button_c_Click(object sender, EventArgs e)
-        {       
-            current_Value = "";
-            result_Value = "";
-            before_Value = "";
-            operation = "";
+        {
+            state.CurrentValue = "";
+            state.ResultValue = "";
+            state.BeforeValue = "";
+            state.Operation = "";
             textBox_presentvalue.Text = "";
             textBox_prevalue.Text = "";
         }
 
         private void button_backspace_Click(object sender, EventArgs e)
         {
-            if (current_Value.Length > 0)
+            if (state.CurrentValue.Length > 0)
             {
-                current_Value = current_Value.Substring(0, current_Value.Length - 1);
-                textBox_presentvalue.Text = current_Value;
+                state.CurrentValue = state.CurrentValue.Substring(0, state.CurrentValue.Length - 1);
+                textBox_presentvalue.Text = state.CurrentValue;
             }
         }
+
         private void button_add_Click(object sender, EventArgs e)
         {
-            if (current_Value.Length != 0)
+            if (state.CurrentValue.Length != 0)
             {
-                if (result_Value == "")
+                if (state.ResultValue == "")
                 {
-                    result_Value = textBox_presentvalue.Text;
+                    state.ResultValue = state.CurrentValue;
                 }
-                textBox_prevalue.Text = result_Value + " + ";
-                current_Value = "";
-                textBox_presentvalue.Text = "";
-                operation = "+";
+                state.Operation = "+";
+                state.CurrentValue = "";
+                UpdateDisplay();
             }
         }
         private void button_subtract_Click(object sender, EventArgs e)
         {
-            if (current_Value.Length == 0)
+            if (state.CurrentValue.Length == 0)
             {
-                current_Value += "- ";
-                textBox_presentvalue.Text = current_Value;
+                state.CurrentValue += "- ";
+                textBox_presentvalue.Text = state.CurrentValue;
             } // 음수 입력 -10
             else
             {
-                if (result_Value == "")
+                if (state.ResultValue == "")
                 {
-                    result_Value = textBox_presentvalue.Text;
+                    state.ResultValue = textBox_presentvalue.Text;
                 }
-                textBox_prevalue.Text = result_Value + " - ";
-                current_Value = "";
+                textBox_prevalue.Text = state.ResultValue + " - ";
+                state.CurrentValue = "";
                 textBox_presentvalue.Text = "";
-                operation = "-";
+                state.Operation = "-";
             } // 빼기
         }
-
         private void button_multiple_Click(object sender, EventArgs e)
         {
-            if (current_Value.Length != 0)
+            if (state.CurrentValue.Length != 0)
             {
-                if (result_Value == "")
+                if (state.ResultValue == "")
                 {
-                    result_Value = textBox_presentvalue.Text;
+                    state.ResultValue = textBox_presentvalue.Text;
                 }
-                textBox_prevalue.Text = result_Value + " × ";
-                current_Value = "";
+                textBox_prevalue.Text = state.ResultValue + " × ";
+                state.CurrentValue = "";
                 textBox_presentvalue.Text = "";
-                operation = "*";
+                state.Operation = "*";
             }
         }
         private void button_divide_Click(object sender, EventArgs e)
         {
-            if (result_Value == "")
+            if (state.ResultValue == "")
             {
-                result_Value = textBox_presentvalue.Text;
+                state.ResultValue = textBox_presentvalue.Text;
             }
-            current_Value = "";
-            textBox_prevalue.Text = result_Value + " ÷ ";
+            state.CurrentValue = "";
+            textBox_prevalue.Text = state.ResultValue + " ÷ ";
             textBox_presentvalue.Text = "";
-            operation = "/";
+            state.Operation = "/";
         }
-        // --------------------------------------------------------
-        private void button_covertsign_Click(object sender, EventArgs e)
+
+        private void button_equal_Click(object sender, EventArgs e)
         {
-            if (textBox_presentvalue.Text.Length != 0)
+            switch (state.Operation)
             {
-                current_Value = textBox_presentvalue.Text;
-                double resConvert = double.Parse(current_Value) * -1;
-                current_Value = resConvert.ToString();
-                textBox_presentvalue.Text = current_Value;
+                case "+":
+                    state.ResultValue = cal.addtion(state.ResultValue, state.CurrentValue);
+                    state.CurrentValue = state.ResultValue;
+                    state.Operation = "";
+                    break;
+                case "-":
+                    state.ResultValue = cal.subtraction(state.ResultValue, state.CurrentValue);
+                    state.CurrentValue = state.ResultValue;
+                    state.Operation = "";
+                    break;
+                case "*":
+                    state.ResultValue = cal.multiplication(state.ResultValue, state.CurrentValue);
+                    state.CurrentValue = state.ResultValue;
+                    state.Operation = "";
+                    break;
+                case "/":
+                    state.ResultValue = cal.division(state.ResultValue, state.CurrentValue);
+                    if (state.ResultValue == "∞")
+                    {
+                        state.CurrentValue = "0으로 나눌 수 없습니다.";
+                        state.Operation = "";
+                        state.ResultValue = "";
+                    }
+                    break;
+            }
+            UpdateDisplay();
+        }
+
+        private void button_float_Click(object sender, EventArgs e)
+        {
+            // 소수점은 하나만 있어야 한다.
+            if (state.CurrentValue.IndexOf(".") == -1)
+            {
+                state.CurrentValue += ".";
             }
         }
 
         private void button_percent_Click(object sender, EventArgs e)
         {
-            if (current_Value.Length != 0)
+            if (state.CurrentValue.Length != 0)
             {
-                if (result_Value == "")
+                if (state.ResultValue == "")
                 {
-                    result_Value = "0";
-                    current_Value = "";
-                    textBox_prevalue.Text = result_Value;
+                    state.ResultValue = "0";
+                    state.CurrentValue = "";
+                    textBox_prevalue.Text = state.ResultValue;
                     textBox_presentvalue.Text = "";
                 }
-                else if (result_Value != "")
+                else if (state.ResultValue != "")
                 {
-                    result_Value = (double.Parse(result_Value) / 100).ToString();
-                    current_Value = "";
-                    textBox_prevalue.Text = result_Value;
+                    state.ResultValue = (double.Parse(state.ResultValue) / 100).ToString();
+                    state.CurrentValue = "";
+                    textBox_prevalue.Text = state.ResultValue;
                     textBox_presentvalue.Text = "";
                 }
 
+            }
+        }
+
+        private void button_covertsign_Click(object sender, EventArgs e)
+        {
+            if (textBox_presentvalue.Text.Length != 0)
+            {
+                state.CurrentValue = textBox_presentvalue.Text;
+                double resConvert = double.Parse(state.CurrentValue) * -1;
+                state.CurrentValue = resConvert.ToString();
+                textBox_presentvalue.Text = state.CurrentValue;
             }
         }
 
@@ -211,27 +228,27 @@ namespace calculating_machine
         {
             if (textBox_presentvalue.Text.Length != 0)
             {
-                result_Value = cal.GetInverse_Value(textBox_presentvalue.Text);
-                current_Value = "";
+                state.ResultValue = cal.GetInverse_Value(textBox_presentvalue.Text);
+                state.CurrentValue = "";
                 textBox_prevalue.Text = "1/(" + textBox_presentvalue.Text + ")";
-                textBox_presentvalue.Text = result_Value;
+                textBox_presentvalue.Text = state.ResultValue;
             }
 
             else if (textBox_presentvalue.Text.Length == 0)
             {
                 textBox_presentvalue.Text = "0으로 나누지 마세요!";
                 textBox_prevalue.Text = "1/0";
-            } 
+            }
         }
 
         private void button_spuare_Click(object sender, EventArgs e)
         {
             if (textBox_presentvalue.Text.Length != 0)
             {
-                result_Value = cal.GetSquare_Value(textBox_presentvalue.Text);
+                state.ResultValue = cal.GetSquare_Value(textBox_presentvalue.Text);
                 textBox_prevalue.Text = "(" + textBox_presentvalue.Text + ")²";
-                current_Value = "";
-                textBox_presentvalue.Text = result_Value;
+                state.CurrentValue = "";
+                textBox_presentvalue.Text = state.ResultValue;
             }
         }
 
@@ -239,104 +256,24 @@ namespace calculating_machine
         {
             if (textBox_presentvalue.Text.Length != 0)
             {
-                result_Value = cal.GetRoot_Value(textBox_presentvalue.Text);
-                if (result_Value == "입력이 잘못되었습니다.")
+                state.ResultValue = cal.GetRoot_Value(textBox_presentvalue.Text);
+                if (state.ResultValue == "입력이 잘못되었습니다.")
                 {
-                    textBox_presentvalue.Text = result_Value;
-                    result_Value = "";
+                    textBox_presentvalue.Text = state.ResultValue;
+                    state.ResultValue = "";
                     textBox_prevalue.Text = "";
                 }
                 else
                 {
-                    current_Value = "";
+                    state.CurrentValue = "";
                     textBox_prevalue.Text = "sqrt(" + textBox_presentvalue.Text + ")";
-                    textBox_presentvalue.Text = result_Value;
+                    textBox_presentvalue.Text = state.ResultValue;
                 }
             }
 
         }
 
-        private void button_float_Click(object sender, EventArgs e)
-        {
-            // 소수점은 하나만 있어야 한다.
-            if (current_Value.IndexOf(".") == -1)
-            {
-                current_Value += ".";
-            }
-        }
-        private void button_equal_Click(object sender, EventArgs e)
-        {
-            switch (operation)
-            {
-                case "+": // 더하기
-                    if (current_Value == "") break; // 연산자가 비어있는 경우
-                    textBox_presentvalue.Text = ""; // 현재 입력 값 삭제
-                    result_Value = cal.addtion(result_Value, current_Value);
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '+')
-                    {
-                        textBox_prevalue.Text = (result_Value + " + " + current_Value);
-                    }
-                    else
-                    {
-                        textBox_prevalue.Text += current_Value;
-                    }
-                    textBox_presentvalue.Text = result_Value;
-                    break;
 
-                case "-": // 빼기
-                    if (current_Value == "") break;
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '-')
-                    {
-                        textBox_prevalue.Text = (result_Value + " - " + current_Value);
-                    }
-                    else
-                    {
-                        textBox_prevalue.Text += current_Value;
-                    }
-                    textBox_presentvalue.Text = "";
-                    result_Value = cal.subtraction(result_Value, current_Value);
-                    textBox_presentvalue.Text = result_Value;
-                    operation = "";
-                    break;
-                case "*": // 곱하기
-                    if (current_Value == "") break;
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '×')
-                    {
-                        textBox_prevalue.Text = (result_Value + " x " + current_Value);
-                    }
-                    else
-                    {
-                        textBox_prevalue.Text += current_Value;
-                    }
-                    textBox_presentvalue.Text = "";
-                    result_Value = cal.multiplication(result_Value, current_Value);
-                    textBox_presentvalue.Text = result_Value;
-                    operation = "";
-                    break;
-                case "/": // 나누기
-                    if (current_Value == "") break;
-                    if (textBox_prevalue.Text[textBox_prevalue.Text.Length - 2] != '÷')
-                    {
-                        textBox_prevalue.Text = (result_Value + " ÷ " + current_Value);
-                    }
-                    else
-                    {
-                        textBox_prevalue.Text += current_Value;
-                    }
-                    textBox_presentvalue.Text = "";
-                    result_Value = cal.division(result_Value, current_Value);
-                    if(result_Value == "∞")
-                    {
-                        textBox_presentvalue.Text = "0으로 나눌 수 없습니다.";
-                        operation = "";
-                        result_Value = "";
-                        textBox_prevalue.Text = "";
-                        break;
-                    }
-                    textBox_presentvalue.Text = result_Value;
-                    operation = "";
-                    break;
-            }
-        }
     }
 }
+
