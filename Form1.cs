@@ -12,7 +12,7 @@ namespace calculating_machine
 {
     public partial class Form1 : Form
     {
-        calculate cal = new calculate();
+        calculate cal;// = new calculate();
         string before_Value = "";
         string current_Value = "";
         string result_Value = "";

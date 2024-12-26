@@ -6,35 +6,47 @@ using System.Threading.Tasks;
 
 namespace calculating_machine
 {
-    class calculate
+    struct calculate
     {
         //더하기
+        public string addtion(string x, string y) => (double.Parse(x) + double.Parse(y)).ToString();
+        /*
         public string addtion(string x, string y)
         {
             double result = double.Parse(x) + double.Parse(y);
             return result.ToString();
         }
+        */
 
         //빼기
+        public string subtraction(string x, string y) => (double.Parse(x) - double.Parse(y)).ToString();
+        /*
         public string subtraction(string x, string y)
         {
             double result = double.Parse(x) - double.Parse(y);
             return result.ToString();
         }
+        */
 
         //나누기
+        public string division(string x, string y) => (double.Parse(x) / double.Parse(y)).ToString();
+        /*
         public string division(string x, string y)
         {
             double result = double.Parse(x) / double.Parse(y);
             return result.ToString();
         }
+        */
 
         //곱하기
+        public string multiplication(string x, string y) => (double.Parse(x) * double.Parse(y)).ToString();
+        /*
         public string multiplication(string x, string y)
         {
             double result = double.Parse(x) * double.Parse(y);
             return result.ToString();
         }
+        */
 
         // 제곱
         public string GetSquare_Value(string x)
@@ -77,11 +89,13 @@ namespace calculating_machine
         }
 
         // 퍼센트(%)
+        public string GetPercentage_Value(string x) => (double.Parse(x) / 100).ToString();
+        /*
         public string GetPercentage_Value(string x)
         {
             double result = double.Parse(x) / 100;
             return result.ToString();
         }
-
+        */
     }
 }
